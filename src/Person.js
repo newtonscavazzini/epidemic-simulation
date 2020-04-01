@@ -11,6 +11,16 @@ class Person {
 
     update() {
 
+        this.move();
+
+        if (this.hasReachedDestination()) {
+            this.pickNewDestination();
+        }
+
+    }
+
+    move() {
+
         // Move X
         let distanceX = this.position.x - this.destination.x;
         if (abs(distanceX) > this.speed) {
@@ -29,10 +39,6 @@ class Person {
             } else {
                 this.position.y -= this.speed;
             }
-        }
-
-        if (this.hasReachedDestination()) {
-            this.pickNewDestination();
         }
 
     }
