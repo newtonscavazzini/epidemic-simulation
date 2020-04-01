@@ -12,6 +12,7 @@ function draw() {
     background(50);
 
     for (let person of population) {
+        person.update();
         person.render();
     }
 }
