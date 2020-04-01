@@ -3,7 +3,7 @@ class Person {
     constructor() {
         this.position = createVector(random(width), random(height));
         this.destination = createVector(0, 0);
-        this.speed = 0;
+        this.speed = createVector(0, 0);
         this.r = 10;
 
         this.pickNewDestination();
@@ -23,21 +23,21 @@ class Person {
 
         // Move X
         let distanceX = this.position.x - this.destination.x;
-        if (abs(distanceX) > this.speed) {
+        if (abs(distanceX) > this.speed.x) {
             if (distanceX < 0) {
-                this.position.x += this.speed;
+                this.position.x += this.speed.x;
             } else {
-                this.position.x -= this.speed;
+                this.position.x -= this.speed.x;
             }
         }
 
         // Move Y
         let distanceY = this.position.y - this.destination.y;
-        if (abs(distanceY) > this.speed) {
+        if (abs(distanceY) > this.speed.y) {
             if (distanceY < 0) {
-                this.position.y += this.speed;
+                this.position.y += this.speed.y;
             } else {
-                this.position.y -= this.speed;
+                this.position.y -= this.speed.y;
             }
         }
 
@@ -51,7 +51,7 @@ class Person {
 
     pickNewDestination() {
         this.destination.set(random(width), random(height));
-        this.speed = random(1, 4);
+        this.speed.set(random(1, 4), random(1, 4));
     }
 
     render() {
