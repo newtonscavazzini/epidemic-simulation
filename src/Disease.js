@@ -8,4 +8,12 @@ class Disease {
         this.day = 0;
     }
 
+    update() {
+        this.day++;
+    }
+
+    hasSymptoms() {
+        return this.day > this.incubationPeriod;
+    }
+
 }
